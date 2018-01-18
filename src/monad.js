@@ -13,27 +13,33 @@ const PersonMonad = person => {
         }
         return failList;
       },
-      value: () => failList
+      value: () => failList,
     };
   };
 
-  const Validation = {
+  return Object.create({
     map: f => PersonMonad(f(person)),
     flatMap: f => f(person),
-    validation: () => ValidMon([])
-  };
-
-  return Object.create(Validation);
+    validation: () => ValidMon([]),
+  });
 };
 const Validation = {
-  validAge: { f: p => p.age >= 18, error: "Error: age is not valid" },
-  validName: { f: p => p.name.length > 3, error: "Error: name is not valid" }
+  validAge: { f: p => p.age >= 18, error: 'Error: age is not valid' },
+  validName: { f: p => p.name.length > 3, error: 'Error: name is not valid' },
 };
 
 console.log(
-  PersonMonad({ age: 12, name: "thiago andrade" })
+  PersonMonad({ age: 12, name: 'thiago andrade' })
     .validation()
     .map(Validation.validAge)
     .map(Validation.validName)
     .value()
+);
+
+// OR
+console.log(
+  PersonMonad({ age: 12, name: 'thiago andrade' })
+    .validation()
+    .map(Validation.validAge)
+    .flatMap(Validation.validName)
 );

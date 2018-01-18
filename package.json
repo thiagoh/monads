@@ -1,0 +1,25 @@
+{
+    "name": "monads",
+    "version": "1.0.0",
+    "description": "https://www.slideshare.net/mariofusco/monadic-java",
+    "main": "monad.js",
+    "scripts": {
+        "build": "babel src -d build"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/thiagoh/monads.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/thiagoh/monads/issues"
+    },
+    "homepage": "https://github.com/thiagoh/monads#readme",
+    "devDependencies": {
+        "babel-cli": "^6.26.0",
+        "babel-preset-env": "^1.6.1",
+        "babel-preset-latest": "^6.24.1",
+        "babel-preset-stage-0": "^6.24.1"
+    }
+}
