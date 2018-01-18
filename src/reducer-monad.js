@@ -3,13 +3,13 @@ const UserReducer = (state, action) => {
     return {
       map: ({ type, func }) => {
         if (action.type === type) {
-          state = func(state, action.payload);
+          state = { ...func(state, action.payload) };
         }
         return ReducerMonad(action);
       },
       flatMap: ({ type, func }) => {
         if (action.type === type) {
-          state = func(state, action.payload);
+          state = { ...func(state, action.payload) };
         }
         return state;
       },
